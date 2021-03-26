@@ -25,13 +25,15 @@ function animatePress(currentColour) {
 }
 
 $(".btn").click(function(){
-    var userChosenColour = $(this).attr("id");
-    var lastIndex = userClickedPattern.length-1;
-    userClickedPattern.push(userChosenColour);
-
-    playAudio(userChosenColour);
-    animatePress(userChosenColour);
-    checkAnswer(lastIndex);
+    if(gameHasStarted){
+        var userChosenColour = $(this).attr("id");
+        var lastIndex = userClickedPattern.length-1;
+        userClickedPattern.push(userChosenColour);
+    
+        playAudio(userChosenColour);
+        animatePress(userChosenColour);
+        checkAnswer(lastIndex);
+    }
 });
 
 $(document).keydown(function(e){
